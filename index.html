@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Опрос членов Ассоциации РАДОР</title>
+    <title>РАДОР - Опрос членов Ассоциации</title>
     <style>
         * { 
             box-sizing: border-box; 
@@ -17,14 +17,18 @@
             background: #f5f5f5; 
             padding: 15px; 
             font-size: 16px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         }
         .container { 
-            max-width: 100%; 
+            max-width: 600px; /* Сузили контейнер */
+            width: 100%;
             margin: 0 auto; 
             background: white; 
-            padding: 20px; 
+            padding: 25px; 
             border-radius: 12px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1); 
         }
         .header { 
             background: linear-gradient(135deg, #2E74B5, #1a4d7a); 
@@ -202,7 +206,7 @@
             }
             input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
                 padding: 12px;
-                font-size: 16px; /* Предотвращает zoom в iOS */
+                font-size: 16px;
             }
             .submit-btn {
                 padding: 18px 30px;
@@ -242,11 +246,6 @@
                         <label><input type="radio" name="level" value="other"> Другое</label>
                         <input type="text" name="level_other_text" placeholder="Уточните уровень" class="other-input">
                     </div>
-                </div>
-
-                <div class="question">
-                    <label>ФИО и должность ответственного: <span class="required">*</span></label>
-                    <input type="text" name="contact_person" required>
                 </div>
             </div>
 
@@ -318,60 +317,6 @@
                 </div>
             </div>
 
-            <!-- Раздел 3: ПИР и СМР -->
-            <div class="form-section">
-                <h2>🏗️ ПИР и СМР</h2>
-                
-                <div class="question">
-                    <label>ПО для проектирования дорог:</label>
-                    <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
-                    
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_autocad"> AutoCAD / AutoCAD Civil 3D</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_nanocad"> nanoCAD GeoniCS</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_indorcad"> IndorCAD</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_credo"> CREDO ДОРОГИ, CREDO DAT</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_topomatic"> Топоматик Robur – Автомобильные дороги</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_none"> Не используем специализированное ПО</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_other"> Другое (укажите)</label>
-                        <input type="text" name="pir_other_text" placeholder="Какое ПО?" class="other-input">
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>ПО для исполнительной документации по СМР:</label>
-                    <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
-                    
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="smr_1c"> Специализированные конфигурации 1С</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="smr_sinfo"> S-Info</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="smr_klever"> Клевер</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="smr_other"> Другое (укажите)</label>
-                        <input type="text" name="smr_other_text" placeholder="Какое ПО?" class="other-input">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Остальные разделы аналогично с множественным выбором -->
-
             <!-- Контактные данные в конце -->
             <div class="form-section">
                 <h2>📞 Контактные данные (не обязательно)</h2>
@@ -383,8 +328,8 @@
                 </div>
 
                 <div class="question">
-                    <label>Контактный телефон:</label>
-                    <input type="tel" name="contact_phone" placeholder="+7 XXX XXX-XX-XX">
+                    <label>Ваше имя (по желанию):</label>
+                    <input type="text" name="contact_name" placeholder="Как к вам обращаться">
                 </div>
             </div>
 
@@ -410,16 +355,20 @@
             emailBody += `Учреждение: ${formData.get('company_name') || 'не указано'}\\n`;
             emailBody += `Уровень: ${formData.get('level') || 'не указано'}`;
             if (formData.get('level_other_text')) emailBody += ` (${formData.get('level_other_text')})`;
-            emailBody += `\\nКонтакт: ${formData.get('contact_person') || 'не указано'}\\n`;
+            emailBody += `\\n`;
             
-            // Добавляем email и телефон если указаны
+            // Добавляем контактные данные если указаны
+            if (formData.get('contact_name')) emailBody += `Имя: ${formData.get('contact_name')}\\n`;
             if (formData.get('contact_email')) emailBody += `Email: ${formData.get('contact_email')}\\n`;
-            if (formData.get('contact_phone')) emailBody += `Телефон: ${formData.get('contact_phone')}\\n`;
             
             emailBody += '\\n=== ОПЕРАЦИОННЫЕ СИСТЕМЫ ===\\n';
-            // Добавляем выбранные ОС...
+            if (formData.get('os_windows')) emailBody += '✅ Windows\\n';
+            if (formData.get('os_astra')) emailBody += '✅ Astra Linux\\n';
+            if (formData.get('os_redos')) emailBody += '✅ РЕД ОС\\n';
+            if (formData.get('os_alt')) emailBody += '✅ ALT Linux\\n';
+            if (formData.get('os_other_text')) emailBody += `✅ Другое: ${formData.get('os_other_text')}\\n`;
             
-            // Отправка через mailto (работает на мобильных)
+            // Отправка через mailto
             window.location.href = `mailto:kuz@indorsoft.ru?bcc=opros@rador.ru&subject=Опрос РАДОР&body=${encodeURIComponent(emailBody)}`;
         });
     </script>
