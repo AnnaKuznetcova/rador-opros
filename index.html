@@ -490,58 +490,64 @@
             </div>
 
             <!-- Раздел 6: Проблемы и пожелания -->
-            <div class="form-section">
-                <h2>❓ Проблемы и пожелания</h2>
-                
-                <div class="question">
-                    <label>С какими основными сложностями вы сталкиваетесь при обмене данными между разными программами?</label>
-                    <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
-                    
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="problem_format"> Несовместимость форматов файлов</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="problem_manual"> Отсутствие автоматизированного обмена, данные переносятся вручную</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="problem_duplicate"> Дублирование данных в разных системах</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="problem_other"> Другое (укажите)</label>
-                        <input type="text" name="problem_other_text" placeholder="Какие сложности?" class="other-input">
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="problem_none"> Проблем нет</label>
-                    </div>
-                </div>
+<div class="form-section">
+    <h2>❓ Проблемы и пожелания</h2>
+    
+    <div class="question">
+        <label>С какими основными сложностями вы сталкиваетесь при обмене данными между разными программами?</label>
+        <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
+        
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="problem_format"> Несовместимость форматов файлов</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="problem_manual"> Отсутствие автоматизированного обмена, данные переносятся вручную</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="problem_duplicate"> Дублирование данных в разных системах</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="problem_other"> Другое (укажите)</label>
+            <input type="text" name="problem_other_text" placeholder="Какие сложности?" class="other-input">
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="problem_none"> Проблем нет</label>
+        </div>
+    </div>
 
-                <div class="question">
-                    <label>Что для вас является главным критерием при выборе нового ПО?</label>
-                    <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
-                    
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_import"> Соответствие требованиям по импортозамещению</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_registry"> Наличие в российском реестре ПО</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_cost"> Стоимость владения (лицензии, поддержка)</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_integration"> Возможности интеграции с существующими системами</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_api"> Наличие документированного REST API интерфейса</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_functionality"> Функциональность</label>
-                    </div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="criterion_simplicity"> Простота освоения</label>
-                    </div>
-                </div>
-            </div>
+    <div class="question">
+        <label>Что для вас является главным критерием при выборе нового ПО?</label>
+        <div class="multiple-note">✓ Можно выбрать несколько вариантов</div>
+        
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_import"> Соответствие требованиям по импортозамещению</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_registry"> Наличие в российском реестре ПО</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_cost"> Стоимость владения (лицензии, поддержка)</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_integration"> Возможности интеграции с существующими системами</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_api"> Наличие документированного REST API интерфейса</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_functionality"> Функциональность</label>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="criterion_simplicity"> Простота освоения</label>
+        </div>
+        
+        <!-- Добавленное поле для свободного ответа -->
+        <div style="margin-top: 20px;">
+            <label>Дополнительные критерии или комментарии:</label>
+            <textarea name="criterion_custom" placeholder="Ваши дополнительные критерии выбора ПО..." rows="3" style="width: 100%; margin-top: 10px;"></textarea>
+        </div>
+    </div>
+</div>
 
             <!-- Контактные данные в конце -->
             <div class="form-section">
@@ -663,15 +669,16 @@
         if (formData.get('problem_other_text')) emailBody += '✅ Другое: ' + formData.get('problem_other_text') + '\n';
         if (formData.get('problem_none')) emailBody += '✅ Проблем нет\n';
         
-        // Критерии выбора ПО
-        emailBody += '\n=== КРИТЕРИИ ВЫБОРА ПО ===\n';
-        if (formData.get('criterion_import')) emailBody += '✅ Импортозамещение\n';
-        if (formData.get('criterion_registry')) emailBody += '✅ Реестр ПО\n';
-        if (formData.get('criterion_cost')) emailBody += '✅ Стоимость владения\n';
-        if (formData.get('criterion_integration')) emailBody += '✅ Интеграция\n';
-        if (formData.get('criterion_api')) emailBody += '✅ REST API\n';
-        if (formData.get('criterion_functionality')) emailBody += '✅ Функциональность\n';
-        if (formData.get('criterion_simplicity')) emailBody += '✅ Простота освоения\n';
+       // Критерии выбора ПО
+emailBody += '\n=== КРИТЕРИИ ВЫБОРА ПО ===\n';
+if (formData.get('criterion_import')) emailBody += '✅ Импортозамещение\n';
+if (formData.get('criterion_registry')) emailBody += '✅ Реестр ПО\n';
+if (formData.get('criterion_cost')) emailBody += '✅ Стоимость владения\n';
+if (formData.get('criterion_integration')) emailBody += '✅ Интеграция\n';
+if (formData.get('criterion_api')) emailBody += '✅ REST API\n';
+if (formData.get('criterion_functionality')) emailBody += '✅ Функциональность\n';
+if (formData.get('criterion_simplicity')) emailBody += '✅ Простота освоения\n';
+if (formData.get('criterion_custom')) emailBody += '✅ Дополнительно: ' + formData.get('criterion_custom') + '\n';
 
         // Отправка через mailto с правильным кодированием
         const subject = 'Опрос РАДОР: ' + (formData.get('company_name') || 'Новая анкета');
