@@ -564,40 +564,120 @@
     </div>
 
     <script>
-        document.getElementById('surveyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Показываем сообщение об успехе
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('surveyForm').style.display = 'none';
-            
-            // Собираем данные формы
-            const formData = new FormData(this);
-            let emailBody = 'НОВЫЕ РЕЗУЛЬТАТЫ ОПРОСА РАДОР\\n\\n';
-            let timestamp = new Date().toLocaleString('ru-RU');
-            
-            // Форматируем данные
-            emailBody += `Время отправки: ${timestamp}\\n`;
-            emailBody += `Учреждение: ${formData.get('company_name') || 'не указано'}\\n`;
-            emailBody += `Уровень: ${formData.get('level') || 'не указано'}`;
-            if (formData.get('level_other_text')) emailBody += ` (${formData.get('level_other_text')})`;
-            emailBody += `\\n`;
-            
-            // Добавляем контактные данные если указаны
-            if (formData.get('contact_name')) emailBody += `Имя: ${formData.get('contact_name')}\\n`;
-            if (formData.get('contact_email')) emailBody += `Email: ${formData.get('contact_email')}\\n`;
-            
-            // Добавляем остальные разделы...
-            emailBody += '\\n=== ОПЕРАЦИОННЫЕ СИСТЕМЫ ===\\n';
-            if (formData.get('os_windows')) emailBody += '✅ Windows\\n';
-            if (formData.get('os_astra')) emailBody += '✅ Astra Linux\\n';
-            if (formData.get('os_redos')) emailBody += '✅ РЕД ОС\\n';
-            if (formData.get('os_alt')) emailBody += '✅ ALT Linux\\n';
-            if (formData.get('os_other_text')) emailBody += `✅ Другое: ${formData.get('os_other_text')}\\n`;
-            
-            // Отправка через mailto
-            window.location.href = `mailto:kuz@indorsoft.ru?bcc=opros@rador.ru&subject=Опрос РАДОР&body=${encodeURIComponent(emailBody)}`;
-        });
-    </script>
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Показываем сообщение об успехе
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('surveyForm').style.display = 'none';
+        
+        // Собираем данные формы
+        const formData = new FormData(this);
+        let emailBody = 'НОВЫЕ РЕЗУЛЬТАТЫ ОПРОСА РАДОР\n\n';
+        let timestamp = new Date().toLocaleString('ru-RU');
+        
+        // Форматируем данные с нормальными переносами
+        emailBody += 'Время отправки: ' + timestamp + '\n';
+        emailBody += 'Учреждение: ' + (formData.get('company_name') || 'не указано') + '\n';
+        emailBody += 'Уровень: ' + (formData.get('level') || 'не указано');
+        if (formData.get('level_other_text')) emailBody += ' (' + formData.get('level_other_text') + ')';
+        emailBody += '\n\n';
+        
+        // Добавляем контактные данные если указаны
+        if (formData.get('contact_name')) emailBody += 'Имя: ' + formData.get('contact_name') + '\n';
+        if (formData.get('contact_email')) emailBody += 'Email: ' + formData.get('contact_email') + '\n';
+        
+        // Операционные системы
+        emailBody += '=== ОПЕРАЦИОННЫЕ СИСТЕМЫ ===\n';
+        if (formData.get('os_windows')) emailBody += '✅ Windows\n';
+        if (formData.get('os_astra')) emailBody += '✅ Astra Linux\n';
+        if (formData.get('os_redos')) emailBody += '✅ РЕД ОС\n';
+        if (formData.get('os_alt')) emailBody += '✅ ALT Linux\n';
+        if (formData.get('os_other_text')) emailBody += '✅ Другое: ' + formData.get('os_other_text') + '\n';
+        
+        // Офисное ПО
+        emailBody += '\n=== ОФИСНОЕ ПО ===\n';
+        if (formData.get('office_ms')) emailBody += '✅ Microsoft Office\n';
+        if (formData.get('office_libre')) emailBody += '✅ LibreOffice / OpenOffice\n';
+        if (formData.get('office_r7')) emailBody += '✅ Р7-Офис / МойОфис\n';
+        if (formData.get('office_other_text')) emailBody += '✅ Другое: ' + formData.get('office_other_text') + '\n';
+        
+        // СЭД
+        emailBody += '\n=== СИСТЕМЫ ДОКУМЕНТООБОРОТА ===\n';
+        if (formData.get('sed_1c')) emailBody += '✅ 1С:Документооборот\n';
+        if (formData.get('sed_directum')) emailBody += '✅ Directum\n';
+        if (formData.get('sed_kontur')) emailBody += '✅ Контур\n';
+        if (formData.get('sed_none')) emailBody += '✅ Не используем централизованную СЭД\n';
+        if (formData.get('sed_other_text')) emailBody += '✅ Другое: ' + formData.get('sed_other_text') + '\n';
+        
+        // ПИР
+        emailBody += '\n=== ПРОЕКТИРОВАНИЕ ДОРОГ ===\n';
+        if (formData.get('pir_autocad')) emailBody += '✅ AutoCAD / AutoCAD Civil 3D\n';
+        if (formData.get('pir_nanocad')) emailBody += '✅ nanoCAD GeoniCS\n';
+        if (formData.get('pir_indorcad')) emailBody += '✅ IndorCAD\n';
+        if (formData.get('pir_credo')) emailBody += '✅ CREDO ДОРОГИ, CREDO DAT\n';
+        if (formData.get('pir_topomatic')) emailBody += '✅ Топоматик Robur\n';
+        if (formData.get('pir_none')) emailBody += '✅ Не используем специализированное ПО\n';
+        if (formData.get('pir_other_text')) emailBody += '✅ Другое: ' + formData.get('pir_other_text') + '\n';
+        
+        // СМР
+        emailBody += '\n=== ИСПОЛНИТЕЛЬНАЯ ДОКУМЕНТАЦИЯ СМР ===\n';
+        if (formData.get('smr_1c')) emailBody += '✅ Специализированные конфигурации 1С\n';
+        if (formData.get('smr_sinfo')) emailBody += '✅ S-Info\n';
+        if (formData.get('smr_klever')) emailBody += '✅ Клевер\n';
+        if (formData.get('smr_other_text')) emailBody += '✅ Другое: ' + formData.get('smr_other_text') + '\n';
+        
+        // ГИС
+        emailBody += '\n=== ГЕОИНФОРМАЦИОННЫЕ СИСТЕМЫ ===\n';
+        if (formData.get('gis_indor')) emailBody += '✅ IndorRoad\n';
+        if (formData.get('gis_titul')) emailBody += '✅ Титул 2005\n';
+        if (formData.get('gis_dorogi')) emailBody += '✅ ГИС "Дороги" / ГИС ОГД\n';
+        if (formData.get('gis_arcgis')) emailBody += '✅ ArcGIS\n';
+        if (formData.get('gis_qgis')) emailBody += '✅ QGIS / ГИС Панорама\n';
+        if (formData.get('gis_custom')) emailBody += '✅ Собственная разработка\n';
+        if (formData.get('gis_none')) emailBody += '✅ Не используем\n';
+        if (formData.get('gis_other_text')) emailBody += '✅ Другое: ' + formData.get('gis_other_text') + '\n';
+        
+        // Браузерный доступ
+        if (formData.get('browser_access')) {
+            emailBody += '\n=== ДОСТУП ЧЕРЕЗ БРАУЗЕР ===\n';
+            emailBody += 'Тип доступа: ' + formData.get('browser_access');
+            if (formData.get('browser_other_text')) emailBody += ' (' + formData.get('browser_other_text') + ')';
+            emailBody += '\n';
+        }
+        
+        // СУБД
+        emailBody += '\n=== БАЗЫ ДАННЫХ ===\n';
+        if (formData.get('dbms_mssql')) emailBody += '✅ Microsoft SQL Server\n';
+        if (formData.get('dbms_postgresql')) emailBody += '✅ PostgreSQL\n';
+        if (formData.get('dbms_oracle')) emailBody += '✅ Oracle Database\n';
+        if (formData.get('dbms_mysql')) emailBody += '✅ MySQL\n';
+        if (formData.get('dbms_ru')) emailBody += '✅ Отечественные СУБД\n';
+        if (formData.get('dbms_other_text')) emailBody += '✅ Другое: ' + formData.get('dbms_other_text') + '\n';
+        
+        // Проблемы
+        emailBody += '\n=== ПРОБЛЕМЫ ===\n';
+        if (formData.get('problem_format')) emailBody += '✅ Несовместимость форматов\n';
+        if (formData.get('problem_manual')) emailBody += '✅ Ручной обмен данными\n';
+        if (formData.get('problem_duplicate')) emailBody += '✅ Дублирование данных\n';
+        if (formData.get('problem_other_text')) emailBody += '✅ Другое: ' + formData.get('problem_other_text') + '\n';
+        if (formData.get('problem_none')) emailBody += '✅ Проблем нет\n';
+        
+        // Критерии выбора ПО
+        emailBody += '\n=== КРИТЕРИИ ВЫБОРА ПО ===\n';
+        if (formData.get('criterion_import')) emailBody += '✅ Импортозамещение\n';
+        if (formData.get('criterion_registry')) emailBody += '✅ Реестр ПО\n';
+        if (formData.get('criterion_cost')) emailBody += '✅ Стоимость владения\n';
+        if (formData.get('criterion_integration')) emailBody += '✅ Интеграция\n';
+        if (formData.get('criterion_api')) emailBody += '✅ REST API\n';
+        if (formData.get('criterion_functionality')) emailBody += '✅ Функциональность\n';
+        if (formData.get('criterion_simplicity')) emailBody += '✅ Простота освоения\n';
+
+        // Отправка через mailto с правильным кодированием
+        const subject = 'Опрос РАДОР: ' + (formData.get('company_name') || 'Новая анкета');
+        window.location.href = 'mailto:kuz@indorsoft.ru?bcc=opros@rador.ru&subject=' + 
+                              encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+    });
+</script>
 </body>
 </html>
