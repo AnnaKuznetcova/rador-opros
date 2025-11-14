@@ -214,17 +214,40 @@
                     </div>
                 </div>
 
-                <div class="question">
-                    <label>Производители собственных лабораторий:</label>
-                    <p>(заполняется только при выборе "Только собственные" или "Собственные и подрядные")</p>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="equip_region"> НПО "Регион"</label>
-                        <label><input type="checkbox" name="equip_sdt"> СДТ (Современные Дорожные Технологии)</label>
-                        <label><input type="checkbox" name="equip_rdt"> СНПЦ "РДТ" (Росдортех)</label>
-                        <label><input type="checkbox" name="equip_other"> Другое</label>
-                        <input type="text" name="equip_other_text" placeholder="Укажите производителя" class="other-input">
-                    </div>
-                </div>
+               <div class="question" id="lab-equipment-section" style="display: none;">
+    <fieldset style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+        <legend style="font-weight: bold; padding: 0 10px;">
+            Производители оборудования собственных лабораторий
+            <small style="color: #666; font-style: italic;">
+                (заполняется только при выборе «Только собственные» или «Собственные и подрядные»)
+            </small>
+        </legend>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" name="equip_region">
+                НПО «Регион»
+            </label>
+            
+            <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" name="equip_sdt">
+                СДТ (Современные Дорожные Технологии)
+            </label>
+            
+            <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" name="equip_rdt">
+                СНПЦ «РДТ» (Росдортех)
+            </label>
+            
+            <label style="display: flex; align-items: flex-start; gap: 8px;">
+                <input type="checkbox" name="equip_other">
+                Другое
+                <input type="text" name="equip_other_text" placeholder="Укажите производителя" 
+                       style="margin-left: 5px; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+            </label>
+        </div>
+    </fieldset>
+</div>
 
                 <div class="question">
                     <label>Ведёте ли обработку данных диагностики?</label>
