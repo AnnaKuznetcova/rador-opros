@@ -592,10 +592,24 @@
             
             // Добавьте остальные разделы по аналогии...
             
-            // Создаем скрытую форму для отправки через FormSubmit
-            const submitForm = document.createElement('form');
-            submitForm.method = 'POST';
-            submitForm.action = 'https://formsubmit.co/kuz@indorsoft.ru';
+           // Форматируем данные для письма
+            let emailBody = "ДАННЫЕ ОПРОСА РАДОР:\\n\\n";
+            for (const [key, value] of formData.entries()) {
+                if (value && value !== '') {
+                    emailBody += `${key}: ${value}\\n`;
+                }
+            }
+
+// Создаем mailto ссылку
+const subject = "Опрос РАДОР: " + (formData.get('company_name') || 'Новая анкета');
+const mailtoLink = `mailto:kuz@indorsoft.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+// Показываем сообщение об успехе ДО открытия почты
+document.getElementById('successMessage').style.display = 'block';
+document.getElementById('surveyForm').style.display = 'none';
+
+// Открываем почтовый клиент
+window.location.href = mailtoLink;
             
             // Добавляем необходимые поля
             const subjectField = document.createElement('input');
