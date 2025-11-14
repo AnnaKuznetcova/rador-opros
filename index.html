@@ -96,14 +96,12 @@
             margin-bottom: 8px; 
             display: flex;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
         }
         .checkbox-group input[type="checkbox"], 
         .radio-group input[type="radio"] {
             margin-right: 15px;
             transform: scale(1.1);
-            min-width: 18px;
         }
         .submit-btn { 
             background: linear-gradient(135deg, #ff6b00, #e55a00); 
@@ -173,7 +171,8 @@
 
         <div id="successMessage" class="success-message">
             <h3>✅ Спасибо за участие в опросе!</h3>
-            <p>Ваши ответы успешно отправлены. Благодарим за ваше время!</p>
+            <p>Ваши ответы успешно отправлены. Благодарим за ваше время и ценный вклад в развитие дорожной отрасли!</p>
+            <p style="margin-top: 15px; font-style: italic;">С уважением, команда ассоциации РАДОР</p>
         </div>
 
         <form id="surveyForm">
@@ -202,113 +201,9 @@
                 </div>
             </div>
 
-            <!-- Раздел 2: ПО общего назначения -->
+            <!-- Раздел 2: Эксплуатация и диагностика -->
             <div class="form-section">
-                <h2>Раздел 2. Программное обеспечение общего назначения</h2>
-                
-                <div class="question">
-                    <label>Операционные системы на рабочих местах:</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="os_alt"> ALT Linux</label>
-                        <label><input type="checkbox" name="os_astra"> Astra Linux</label>
-                        <label><input type="checkbox" name="os_windows"> Microsoft Windows</label>
-                        <label><input type="checkbox" name="os_redos"> РЕД ОС</label>
-                        <label><input type="checkbox" name="os_rosa"> РОСА Linux</label>
-                        <label><input type="checkbox" name="os_other"> Другое</label>
-                        <input type="text" name="os_other_text" placeholder="Укажите ОС" class="other-input">
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>Офисные пакеты:</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="office_google"> Google Workspace</label>
-                        <label><input type="checkbox" name="office_libre"> LibreOffice</label>
-                        <label><input type="checkbox" name="office_ms"> Microsoft Office</label>
-                        <label><input type="checkbox" name="office_myoffice"> МойОфис Профессиональный</label>
-                        <label><input type="checkbox" name="office_open"> OpenOffice</label>
-                        <label><input type="checkbox" name="office_r7"> Р7-Офис</label>
-                        <label><input type="checkbox" name="office_vk"> VK WorkSpace</label>
-                        <label><input type="checkbox" name="office_yandex"> Яндекс 360 для бизнеса</label>
-                        <label><input type="checkbox" name="office_other"> Другое</label>
-                        <input type="text" name="office_other_text" placeholder="Укажите офисный пакет" class="other-input">
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>Системы электронного документооборота (СЭД):</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="sed_1c"> 1С:Документооборот</label>
-                        <label><input type="checkbox" name="sed_bitrix"> Битрикс24</label>
-                        <label><input type="checkbox" name="sed_directum"> Directum Lite</label>
-                        <label><input type="checkbox" name="sed_docsvision"> Docsvision</label>
-                        <label><input type="checkbox" name="sed_ispace"> iSpace</label>
-                        <label><input type="checkbox" name="sed_other"> Другое</label>
-                        <input type="text" name="sed_other_text" placeholder="Укажите СЭД" class="other-input">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Раздел 3: Специализированное ПО -->
-            <div class="form-section">
-                <h2>Раздел 3. Специализированное программное обеспечение</h2>
-                
-                <div class="question">
-                    <label>Системы оперативного управления (СОУ):</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="sou_dorhab"> Дорхаб</label>
-                        <label><input type="checkbox" name="sou_spider"> Спайдер</label>
-                        <label><input type="checkbox" name="sou_etalon"> Эталон</label>
-                        <label><input type="checkbox" name="sou_other"> Другое</label>
-                        <input type="text" name="sou_other_text" placeholder="Укажите СОУ" class="other-input">
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>Информационная система управления проектами (ИСУП) Минстроя:</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="isup" value="yes"> Используем ИСУП Минстроя</label>
-                        <label><input type="radio" name="isup" value="no"> Не используем ИСУП Минстроя</label>
-                        <label><input type="radio" name="isup" value="other"> Другое</label>
-                        <input type="text" name="isup_other_text" placeholder="Уточните" class="other-input">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Раздел 4: Проектирование и строительство -->
-            <div class="form-section">
-                <h2>Раздел 4. Проектирование и строительство автомобильных дорог</h2>
-                
-                <div class="question">
-                    <label>Программное обеспечение для проектно-изыскательских работ:</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="pir_autocad"> AutoCAD Civil 3D</label>
-                        <label><input type="checkbox" name="pir_indorcad"> IndorCAD</label>
-                        <label><input type="checkbox" name="pir_nanocad"> nanoCAD GeoniCS</label>
-                        <label><input type="checkbox" name="pir_credo"> ТИМ КРЕДО ДОРОГИ</label>
-                        <label><input type="checkbox" name="pir_topomatic"> Топоматик Robur – Автомобильные дороги</label>
-                        <label><input type="checkbox" name="pir_none"> Не используем специализированное ПО</label>
-                        <label><input type="checkbox" name="pir_other"> Другое</label>
-                        <input type="text" name="pir_other_text" placeholder="Укажите ПО" class="other-input">
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label>Программное обеспечение для сопровождения проектно-сметной документации:</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="estimate_ingipro"> ИНГИПРО</label>
-                        <label><input type="checkbox" name="estimate_klever"> Клевер</label>
-                        <label><input type="checkbox" name="estimate_sinfo"> S-Info</label>
-                        <label><input type="checkbox" name="estimate_1c"> Специализированные конфигурации 1С</label>
-                        <label><input type="checkbox" name="estimate_other"> Другое</label>
-                        <input type="text" name="estimate_other_text" placeholder="Укажите ПО" class="other-input">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Раздел 5: Диагностика технического состояния автомобильных дорог и искусственных сооружений -->
-            <div class="form-section">
-                <h2>Раздел 5. Оценка технического состояния автомобильных дорог </h2>
+                <h2>Раздел 2. Эксплуатация и диагностика автомобильных дорог</h2>
                 
                 <div class="question">
                     <label>Используете ли собственные диагностические дорожные лаборатории?</label>
@@ -370,7 +265,7 @@
                     <div class="checkbox-group">
                         <label><input type="checkbox" name="format_gis"> В специализированной ГИС/базе данных</label>
                         <label><input type="checkbox" name="format_docs"> В электронных таблицах и документах</label>
-                        <label><input type="checkbox" name="format_pdf"> В виде PDF</label>
+                        <label><input type="checkbox" name="format_pdf"> В виде PDF-отчётов</label>
                         <label><input type="checkbox" name="format_paper"> Только в бумажном виде</label>
                         <label><input type="checkbox" name="format_other"> Другое</label>
                         <input type="text" name="format_other_text" placeholder="Укажите формат" class="other-input">
@@ -378,15 +273,46 @@
                 </div>
             </div>
 
-            <!-- Раздел 6: Организация движения и управление содержанием -->
+            <!-- Раздел 3: Проектирование и строительство -->
             <div class="form-section">
-                <h2>Раздел 6. Организация дорожного движения и управление содержанием</h2>
+                <h2>Раздел 3. Проектирование и строительство автомобильных дорог</h2>
+                
+                <div class="question">
+                    <label>Программное обеспечение для проектно-изыскательских работ:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="pir_autocad"> AutoCAD Civil 3D</label>
+                        <label><input type="checkbox" name="pir_indorcad"> IndorCAD</label>
+                        <label><input type="checkbox" name="pir_nanocad"> nanoCAD GeoniCS</label>
+                        <label><input type="checkbox" name="pir_credo"> ТИМ КРЕДО ДОРОГИ</label>
+                        <label><input type="checkbox" name="pir_topomatic"> Топоматик Robur – Автомобильные дороги</label>
+                        <label><input type="checkbox" name="pir_none"> Не используем специализированное ПО</label>
+                        <label><input type="checkbox" name="pir_other"> Другое</label>
+                        <input type="text" name="pir_other_text" placeholder="Укажите ПО" class="other-input">
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label>Программное обеспечение для сопровождения проектно-сметной документации:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="estimate_ingipro"> ИНГИПРО</label>
+                        <label><input type="checkbox" name="estimate_klever"> Клевер</label>
+                        <label><input type="checkbox" name="estimate_sinfo"> S-Info</label>
+                        <label><input type="checkbox" name="estimate_1c"> Специализированные конфигурации 1С</label>
+                        <label><input type="checkbox" name="estimate_other"> Другое</label>
+                        <input type="text" name="estimate_other_text" placeholder="Укажите ПО" class="other-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 4: Организация движения и управление содержанием -->
+            <div class="form-section">
+                <h2>Раздел 4. Организация дорожного движения и управление содержанием</h2>
                 
                 <div class="question">
                     <label>Форматы хранения проектов организации дорожного движения (ПОДД):</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" name="podd_paper"> Только в бумажном виде</label>
-                        <label><input type="checkbox" name="podd_pdf"> В бумажном виде и PDF</label>
+                        <label><input type="checkbox" name="podd_pdf"> В бумажном виде и PDF-копиях</label>
                         <label><input type="checkbox" name="podd_software"> В файлах специализированных программ:</label>
                         <div class="nested-question">
                             <label><input type="checkbox" name="podd_indor"> IndorTrafficPlan</label>
@@ -418,9 +344,9 @@
                 </div>
             </div>
 
-            <!-- Раздел 7: Технические возможности -->
+            <!-- Раздел 5: Технические возможности -->
             <div class="form-section">
-                <h2>Раздел 7. Технические возможности и интеграция</h2>
+                <h2>Раздел 5. Технические возможности и интеграция</h2>
                 
                 <div class="question">
                     <label>Доступ к системам:</label>
@@ -460,9 +386,9 @@
                 </div>
             </div>
 
-            <!-- Раздел 8: Базы данных -->
+            <!-- Раздел 6: Базы данных -->
             <div class="form-section">
-                <h2>Раздел 8. Базы данных и серверное ПО</h2>
+                <h2>Раздел 6. Базы данных и серверное ПО</h2>
                 
                 <div class="question">
                     <label>Используемые СУБД:</label>
@@ -474,6 +400,79 @@
                         <label><input type="checkbox" name="dbms_ru"> Отечественные СУБД (Postgres Pro, РЕД База Данных)</label>
                         <label><input type="checkbox" name="dbms_other"> Другое</label>
                         <input type="text" name="dbms_other_text" placeholder="Укажите СУБД" class="other-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 7: ПО общего назначения -->
+            <div class="form-section">
+                <h2>Раздел 7. Программное обеспечение общего назначения</h2>
+                
+                <div class="question">
+                    <label>Операционные системы на рабочих местах:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="os_alt"> ALT Linux</label>
+                        <label><input type="checkbox" name="os_astra"> Astra Linux</label>
+                        <label><input type="checkbox" name="os_windows"> Microsoft Windows</label>
+                        <label><input type="checkbox" name="os_redos"> РЕД ОС</label>
+                        <label><input type="checkbox" name="os_rosa"> РОСА Linux</label>
+                        <label><input type="checkbox" name="os_other"> Другое</label>
+                        <input type="text" name="os_other_text" placeholder="Укажите ОС" class="other-input">
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label>Офисные пакеты:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="office_google"> Google Workspace</label>
+                        <label><input type="checkbox" name="office_libre"> LibreOffice</label>
+                        <label><input type="checkbox" name="office_ms"> Microsoft Office</label>
+                        <label><input type="checkbox" name="office_myoffice"> МойОфис Профессиональный</label>
+                        <label><input type="checkbox" name="office_open"> OpenOffice</label>
+                        <label><input type="checkbox" name="office_r7"> Р7-Офис</label>
+                        <label><input type="checkbox" name="office_vk"> VK WorkSpace</label>
+                        <label><input type="checkbox" name="office_yandex"> Яндекс 360 для бизнеса</label>
+                        <label><input type="checkbox" name="office_other"> Другое</label>
+                        <input type="text" name="office_other_text" placeholder="Укажите офисный пакет" class="other-input">
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label>Системы электронного документооборота (СЭД):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="sed_1c"> 1С:Документооборот</label>
+                        <label><input type="checkbox" name="sed_bitrix"> Битрикс24</label>
+                        <label><input type="checkbox" name="sed_directum"> Directum Lite</label>
+                        <label><input type="checkbox" name="sed_docsvision"> Docsvision</label>
+                        <label><input type="checkbox" name="sed_ispace"> iSpace</label>
+                        <label><input type="checkbox" name="sed_other"> Другое</label>
+                        <input type="text" name="sed_other_text" placeholder="Укажите СЭД" class="other-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Раздел 8: Специализированное ПО -->
+            <div class="form-section">
+                <h2>Раздел 8. Специализированное программное обеспечение</h2>
+                
+                <div class="question">
+                    <label>Системы оперативного управления (СОУ):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="sou_dorhab"> Дорхаб</label>
+                        <label><input type="checkbox" name="sou_spider"> Спайдер</label>
+                        <label><input type="checkbox" name="sou_etalon"> Эталон</label>
+                        <label><input type="checkbox" name="sou_other"> Другое</label>
+                        <input type="text" name="sou_other_text" placeholder="Укажите СОУ" class="other-input">
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label>Информационная система управления проектами (ИСУП) Минстроя:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="isup" value="yes"> Используем ИСУП Минстроя</label>
+                        <label><input type="radio" name="isup" value="no"> Не используем ИСУП Минстроя</label>
+                        <label><input type="radio" name="isup" value="other"> Другое</label>
+                        <input type="text" name="isup_other_text" placeholder="Уточните" class="other-input">
                     </div>
                 </div>
             </div>
@@ -508,11 +507,8 @@
                 </div>
             </div>
 
-            <button type="submit" class="submit-btn">Отправить ответы</button>
-        </form>
-    </div>
-
-     <div class="form-section" style="background: #f0f7ff; border-left: 4px solid #2E74B5;">
+            <!-- Благодарность -->
+            <div class="form-section" style="background: #f0f7ff; border-left: 4px solid #2E74B5;">
                 <div style="text-align: center; padding: 20px;">
                     <h3 style="color: #2E74B5; margin-bottom: 15px;">Благодарим за участие в опросе!</h3>
                     <p style="color: #666; line-height: 1.6;">
@@ -522,39 +518,101 @@
                 </div>
             </div>
 
+            <button type="submit" class="submit-btn">Отправить ответы</button>
+        </form>
+    </div>
+
     <script>
         document.getElementById('surveyForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Собираем все данные формы
+            const formData = new FormData(this);
+            let formattedData = 'НОВЫЕ РЕЗУЛЬТАТЫ ОПРОСА РАДОР\n\n';
+            
+            // Форматируем данные для читаемого письма
+            formattedData += '=== ОБЩАЯ ИНФОРМАЦИЯ ===\n';
+            formattedData += 'Учреждение: ' + (formData.get('company_name') || 'не указано') + '\n';
+            formattedData += 'Контактное лицо: ' + (formData.get('contact_person') || 'не указано') + '\n';
+            formattedData += 'Email: ' + (formData.get('contact_email') || 'не указано') + '\n';
+            formattedData += 'Телефон: ' + (formData.get('contact_phone') || 'не указано') + '\n\n';
+            
+            // Собираем все чекбоксы и данные
+            formattedData += '=== ЭКСПЛУАТАЦИЯ И ДИАГНОСТИКА ===\n';
+            if (formData.get('lab_own') === 'yes') formattedData += '✅ Используем собственные лаборатории\n';
+            if (formData.get('lab_own') === 'no') formattedData += '✅ Используем услуги подрядчиков\n';
+            if (formData.get('lab_own') === 'mixed') formattedData += '✅ Комбинированный подход\n';
+            
+            if (formData.get('equip_region')) formattedData += '✅ Оборудование: НПО "Регион"\n';
+            if (formData.get('equip_sdt')) formattedData += '✅ Оборудование: СДТ\n';
+            if (formData.get('equip_rdt')) formattedData += '✅ Оборудование: СНПЦ "РДТ"\n';
+            if (formData.get('equip_other_text')) formattedData += '✅ Оборудование: ' + formData.get('equip_other_text') + '\n';
+            
+            if (formData.get('data_process') === 'yes') formattedData += '✅ Обрабатываем данные самостоятельно\n';
+            if (formData.get('data_process') === 'no') formattedData += '✅ Передаём данные подрядчикам\n';
+            if (formData.get('data_process') === 'partial') formattedData += '✅ Частичная обработка\n';
+            
+            if (formData.get('process_rdt')) formattedData += '✅ ПО обработки: RDT Line\n';
+            if (formData.get('process_svdp')) formattedData += '✅ ПО обработки: СВДП\n';
+            if (formData.get('process_titul')) formattedData += '✅ ПО обработки: Титул 2005\n';
+            if (formData.get('process_other_text')) formattedData += '✅ ПО обработки: ' + formData.get('process_other_text') + '\n';
+            
+            if (formData.get('storage_aiss')) formattedData += '✅ Хранение: АИС ИССО\n';
+            if (formData.get('storage_indor')) formattedData += '✅ Хранение: IndorRoad\n';
+            if (formData.get('storage_officeroad')) formattedData += '✅ Хранение: Office Road\n';
+            if (formData.get('storage_roaddb')) formattedData += '✅ Хранение: Road DB\n';
+            if (formData.get('storage_roadoffice')) formattedData += '✅ Хранение: Road Office\n';
+            if (formData.get('storage_titul')) formattedData += '✅ Хранение: Титул 2005\n';
+            if (formData.get('storage_none')) formattedData += '✅ Не используем специализированные системы\n';
+            if (formData.get('storage_other_text')) formattedData += '✅ Хранение: ' + formData.get('storage_other_text') + '\n';
+            
+            // Добавьте остальные разделы по аналогии...
+            
+            // Создаем скрытую форму для отправки через FormSubmit
+            const submitForm = document.createElement('form');
+            submitForm.method = 'POST';
+            submitForm.action = 'https://formsubmit.co/kuz@indorsoft.ru';
+            
+            // Добавляем необходимые поля
+            const subjectField = document.createElement('input');
+            subjectField.type = 'hidden';
+            subjectField.name = '_subject';
+            subjectField.value = 'Опрос РАДОР: ' + (formData.get('company_name') || 'Новая анкета');
+            submitForm.appendChild(subjectField);
+            
+            const messageField = document.createElement('input');
+            messageField.type = 'hidden';
+            messageField.name = 'message';
+            messageField.value = formattedData;
+            submitForm.appendChild(messageField);
+            
+            const replyToField = document.createElement('input');
+            replyToField.type = 'hidden';
+            replyToField.name = '_replyto';
+            replyToField.value = formData.get('contact_email') || '';
+            submitForm.appendChild(replyToField);
+            
+            const captchaField = document.createElement('input');
+            captchaField.type = 'hidden';
+            captchaField.name = '_captcha';
+            captchaField.value = 'false';
+            submitForm.appendChild(captchaField);
+            
+            const templateField = document.createElement('input');
+            templateField.type = 'hidden';
+            templateField.name = '_template';
+            templateField.value = 'table';
+            submitForm.appendChild(templateField);
+            
+            // Добавляем форму на страницу и отправляем
+            document.body.appendChild(submitForm);
             
             // Показываем сообщение об успехе
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('surveyForm').style.display = 'none';
             
-            // Собираем данные формы
-            const formData = new FormData(this);
-            let emailBody = 'НОВЫЕ РЕЗУЛЬТАТЫ ОПРОСА РАДОР\n\n';
-            let timestamp = new Date().toLocaleString('ru-RU');
-            
-            // Форматируем данные
-            emailBody += 'Время отправки: ' + timestamp + '\n';
-            emailBody += 'Учреждение: ' + (formData.get('company_name') || 'не указано') + '\n';
-            emailBody += 'Контактное лицо: ' + (formData.get('contact_person') || 'не указано') + '\n';
-            emailBody += 'Email: ' + (formData.get('contact_email') || 'не указано') + '\n';
-            emailBody += 'Телефон: ' + (formData.get('contact_phone') || 'не указано') + '\n\n';
-            
-            // Добавляем остальные разделы...
-            emailBody += '=== ОПЕРАЦИОННЫЕ СИСТЕМЫ ===\n';
-            if (formData.get('os_alt')) emailBody += '✅ ALT Linux\n';
-            if (formData.get('os_astra')) emailBody += '✅ Astra Linux\n';
-            if (formData.get('os_windows')) emailBody += '✅ Microsoft Windows\n';
-            if (formData.get('os_redos')) emailBody += '✅ РЕД ОС\n';
-            if (formData.get('os_rosa')) emailBody += '✅ РОСА Linux\n';
-            if (formData.get('os_other_text')) emailBody += '✅ Другое: ' + formData.get('os_other_text') + '\n';
-            
-            // Отправка через mailto
-            const subject = 'Опрос РАДОР: ' + (formData.get('company_name') || 'Новая анкета');
-            window.location.href = 'mailto:kuz@indorsoft.ru?bcc=opros@rador.ru&subject=' + 
-                                  encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+            // Отправляем форму
+            submitForm.submit();
         });
     </script>
 </body>
